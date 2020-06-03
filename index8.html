@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .alert {
+        background-color: #fcc;
+        padding: 10px;
+        border: 1px solid #f33;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <aleart-box>???</aleart-box>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component("aleart-box", {
+        template: `
+    <div class="alert" v-on:click="caution">
+      <strong>error!</strong>
+    <slot>    </slot>
+    </div>
+    `,
+        methods: {
+          caution: function () {
+            alert("clicked");
+          },
+        },
+      });
+
+      var app = new Vue({
+        el: "#app"
+      });
+    </script>
+  </body>
+</html>
